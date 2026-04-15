@@ -17,48 +17,46 @@
         }
 
         #status { 
-            position: absolute;
-            top: 0; width: 100%;
-            padding: 10px; 
-            background: rgba(34, 34, 34, 0.9); 
+            padding: 15px; 
+            background: #222; 
             text-align: center;
-            z-index: 10;
             font-size: 14px;
             border-bottom: 1px solid #444;
         }
 
-        /* Grille principale : 2 colonnes (moitié gauche / moitié droite) */
+        /* Grille principale : 2 colonnes */
         .controls-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr; 
-            height: 100vh;
+            height: calc(100vh - 50px); /* Prend le reste de l'écran après le statut */
             width: 100vw;
             box-sizing: border-box;
         }
 
-        /* Zone Gauche : Contient les flèches alignées en bas */
+        /* Zone Gauche : Alignée en haut */
         .left-side {
             display: flex;
-            align-items: flex-end; /* Pousse vers le bas */
-            padding: 15px;
+            align-items: flex-start; /* Aligne en haut */
+            padding: 20px 10px 10px 15px;
         }
 
         .movement-row {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Aligne gauche/droite sur une ligne */
+            grid-template-columns: 1fr 1fr; 
             gap: 10px;
             width: 100%;
         }
 
-        /* Zone Droite : Contient le bouton Saut en bas */
+        /* Zone Droite : Alignée en haut */
         .right-side {
             display: flex;
-            align-items: flex-end; /* Pousse vers le bas */
-            padding: 15px;
+            align-items: flex-start; /* Aligne en haut */
+            padding: 20px 15px 10px 10px;
         }
 
         button { 
             width: 100%;
+            height: 100px;
             font-weight: bold;
             color: white; 
             border-radius: 15px; 
@@ -71,22 +69,19 @@
             justify-content: center;
         }
 
-        /* Boutons de déplacement (Côte à côte) */
+        /* Couleurs */
         .btn-move { 
-            height: 100px; 
             background: #333; 
             font-size: 26px;
         }
 
-        /* Bouton Saut (Largeur totale de la moitié droite) */
         .btn-jump { 
-            height: 100px; 
             background: #007bff; 
-            font-size: 20px;
+            font-size: 18px;
             text-transform: uppercase;
         }
 
-        /* Feedback au toucher */
+        /* Feedback tactile */
         button:active { 
             background: #555;
             transform: scale(0.95);
@@ -94,13 +89,12 @@
 
         .btn-jump:active {
             background: #00c3ff;
-            border-color: #fff;
         }
     </style>
 </head>
 <body>
 
-    <div id="status">Statut: Connecté</div>
+    <div id="status">Statut: Prêt (Boutons en haut)</div>
 
     <div class="controls-wrapper">
         
